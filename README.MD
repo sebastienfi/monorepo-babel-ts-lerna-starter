@@ -738,7 +738,7 @@ If you do it for the first time, you should have `@storybook@cli` installed glob
 
 ```bash
 yarn global add @storybook/cli@next
-getstorybook
+getstorybook init
 ```
 
 It will automatically detect project type (react), installs all required packages and create basic configuration folder.
