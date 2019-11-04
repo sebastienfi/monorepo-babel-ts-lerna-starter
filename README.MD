@@ -799,7 +799,7 @@ Let's add override to `.eslintrc.js`:
 
 ```javascript
 // .eslintrc.js
-modeule.exports = {
+module.exports = {
   // existing eslint configuration
   overrides: [
     {
