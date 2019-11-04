@@ -866,7 +866,7 @@ ERROR: Module '@storybook/react' is not listed as dependency in package.json
 Storybook allows to pass any props to the react component without rebuilding stories, just through UI interface. To do it, we have to add one more addons - [`@storybook/addon-knobs`](https://github.com/storybooks/storybook/tree/master/addons/knobs)
 
 ```bash
-yarn add -DW @storybook/addon-knobs@next @types/storybook__addon-knobs moment
+yarn add -DW @storybook/addon-knobs@next moment
 ```
 
 **NOTE**: moment has to be installed because of wrong peerDependencies management on `storybook` and `react-datetime` level.
