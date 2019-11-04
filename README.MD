@@ -748,7 +748,7 @@ It will automatically detect project type (react), installs all required package
 Still, as we use typescript, we have to install typings for those packages, loader for wepback and needed peerDependencies:
 
 ```bash
-yarn add -DW @types/storybook__react @types/storybook__addon-actions @types/storybook__addon-links react-dom webpack awesome-typescript-loader
+yarn add -DW @types/storybook__react react-dom webpack awesome-typescript-loader
 ```
 
 Storybook inits application as it is javascript based, as we have typescript everywhere, we have to change path resolution for stories in `storybook/config.js` file:
