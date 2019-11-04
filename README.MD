@@ -52,7 +52,7 @@ There are many of approaches how to implement monorepo - `yarn workspaces`, `buc
 
 ## The goal
 
-The goal of this article is to create monorepo starter with Babel for building packages, TypeScript for having benefits of statically typed languages in the JavaScript world, static code analyzing tools (Tslint, Stylelint), Prettier for having automatically formated code (no more tabs or spaces holly wars), Storybook for developing components, and last, but not least - Lerna for publishing. All components will be written with React and StyledComponents for CSS-in-JS styling.
+The goal of this article is to create monorepo starter with Babel for building packages, TypeScript for having benefits of statically typed languages in the JavaScript world, static code analyzing tools (Eslint, Stylelint), Prettier for having automatically formated code (no more tabs or spaces holly wars), Storybook for developing components, and last, but not least - Lerna for publishing. All components will be written with React and StyledComponents for CSS-in-JS styling.
 
 Let's not waste time on long talks about what are those tools and why they are so important, and proceed to the real configuration and will see how everyone will benefit from each in the future.
 
@@ -361,7 +361,7 @@ Having typescript for types checking could protect us from creating plenty of mi
 
 <p align="center">
   <a href="https://github.com/typescript-eslint/typescript-eslint">
-    <img alt="tslint" src="https://eslint.org/assets/img/logo.svg" width="150">
+    <img alt="eslint" src="https://eslint.org/assets/img/logo.svg" width="150">
   </a>
 </p>
 
@@ -472,13 +472,13 @@ yarn add -DW tslint tslint-react
 
 Let's use `stylelint` for improving our CSS styles quality and readability. It could be easily used for analyzing CSS-in-JS as well as with simple CSS or SCSS files.
 
-Installation and configuration process as simple as with `tslint`:
+Installation and configuration process as simple as with `eslint`:
 
 ```bash
 yarn add -DW stylelint stylelint-processor-styled-components stylelint-config-styled-components stylelint-config-standard
 ```
 
-Create simple config file for it `tslint.json`:
+Create simple config file for it `stylelint.json`:
 
 ```json
 {
@@ -513,18 +513,18 @@ and new script in the root `package.json`:
 {
   "scripts": {
     "lint": "run-p -c lint:*",
-    "lint:ts": "tslint 'packages/**/*.ts{,x}'",
+    "lint:ts": "eslint 'packages/**/*.ts{,x}'",
     "lint:css": "stylelint 'packages/**/*.ts{,x}'"
   }
 }
 ```
 
-**Note:** `run-p -c` allows to run all `lint:*` commands even if one of them failed. It's useful in case of separated static code analyzer steps, as after one run we have output from `tslint` and `stylelint`, instead of only first failed.
+**Note:** `run-p -c` allows to run all `lint:*` commands even if one of them failed. It's useful in case of separated static code analyzer steps, as after one run we have output from `eslint` and `stylelint`, instead of only first failed.
 
 ### Code formatting
 
 <p align="center">
-  <a href="https://palantir.github.io/tslint/">
+  <a href="https://github.com/prettier/prettier">
     <img alt="prettier" src="https://raw.githubusercontent.com/prettier/prettier-logo/master/images/prettier-banner-light.png" width="150">
   </a>
 </p>
@@ -588,7 +588,7 @@ Last but not least, let's add script to the root `package.json` for automatic co
   </a>
 </p>
 
-For now we have TypeScript for checking types, `tslint` and `stylelint` for static code quality analyzing. Last, but not least part is testing. Let's use `jest` as test runner and test assertion tool. It has the best support for `react`, including snapshot testing, extensive mocking library, build-in coverage reporting and ability to run tests in different processes. `ts-jest` should be used for running `typescript` code. Installation is also quite simple:
+For now we have TypeScript for checking types, `eslint` and `stylelint` for static code quality analyzing. Last, but not least part is testing. Let's use `jest` as test runner and test assertion tool. It has the best support for `react`, including snapshot testing, extensive mocking library, build-in coverage reporting and ability to run tests in different processes. `ts-jest` should be used for running `typescript` code. Installation is also quite simple:
 
 ```bash
 yarn add -DW jest ts-jest @types/jest
@@ -726,7 +726,7 @@ That's it, `jest` is configured and could be run. Let's add `test` to the root `
   </a>
 </p>
 
-We already able to write code in monorepo with `typescript`, analyze it with `tslint` and `stylelint`, test it with `jest`. However, we still cannot see how our components will look like and we cannot even debug it properly.
+We already able to write code in monorepo with `typescript`, analyze it with `eslint` and `stylelint`, test it with `jest`. However, we still cannot see how our components will look like and we cannot even debug it properly.
 
 There are plenty of ways how to present react component. Let's go with most famous one - `storybook`. It allows to present separate components and/or group of them as well as testing it in real browsers, and having documentation close to it.
 
